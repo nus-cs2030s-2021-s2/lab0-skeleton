@@ -14,12 +14,12 @@ class Test {
 
     expect("Circle: does {(0, 0), 4} contains (0, 0)?",
         new Circle(new Point(0, 0), 4)
-        .contains(new Point(0, 0)),
+            .contains(new Point(0, 0)),
         true);
 
     expect("Circle: does {(0, 0), 4} contains (4, 4)?",
         new Circle(new Point(0, 0), 4)
-        .contains(new Point(4, 4)),
+            .contains(new Point(4, 4)),
         false);
 
     expect("RandomPoint: new with default seed",
