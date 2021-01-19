@@ -14,18 +14,20 @@ class Test {
 
     expect("Circle: does {(0, 0), 4} contains (0, 0)?",
         new Circle(new Point(0, 0), 4)
-            .contains(new Point(0, 0)),
+        .contains(new Point(0, 0)),
         true);
 
     expect("Circle: does {(0, 0), 4} contains (4, 4)?",
         new Circle(new Point(0, 0), 4)
-            .contains(new Point(4, 4)),
+        .contains(new Point(4, 4)),
         false);
 
+    // Test RandomPoint
     expect("RandomPoint: new with default seed",
         new RandomPoint(0, 1, 0, 1).toString(),
         "(0.7308781907032909, 0.41008081149220166)");
 
+    RandomPoint.setSeed(10);
     expect("RandomPoint: new with seed 10",
         new RandomPoint(0, 1, 0, 1).toString(),
         "(0.7304302967434272, 0.2578027905957804)");
@@ -36,7 +38,7 @@ class Test {
 
     RandomPoint.setSeed(10);
     expect("RandomPoint: reset seed to 10 and new again",
-        new RandomPoint(0, 1, 0, 1),
+        new RandomPoint(0, 1, 0, 1).toString(),
         "(0.7304302967434272, 0.2578027905957804)");
   }
 
