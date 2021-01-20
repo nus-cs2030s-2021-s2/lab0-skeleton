@@ -107,7 +107,7 @@ To generate a new point,
 Point p = new RandomPoint(minX, maxX, minY, maxY); 
 ```
 
-`minX`, `minY, `maxX`, `maxY` represent the minimum and
+`minX`, `minY`, `maxX`, `maxY` represent the minimum and
 maximum possible x and y values respectively, for each
 randomly generated point.
 
