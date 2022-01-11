@@ -1,6 +1,6 @@
-# Lab 0: Circle and Points
+# Lab 0: Circle and Point
 
-- Deadline: 27 January 2021, Wednesday, 23:59 SST
+- Deadline: 26 January 2022, Wednesday, 23:59 SST
 - Marks: 0
 
 ## Prerequisite:
@@ -66,9 +66,9 @@ In this directory, you should see the following files:
   `inputs/Lab0.k.in` to the expected output in
   `outputs/Lab0.k.out`
 
-- Unit tests for Java classes: `Test.java`.  This file tests
-  individual classes to check if they have the expected
-  behavior
+- Unit tests for Java classes: `Test1.java` to `Test3.java`.
+  These files test individual classes to check if they have the 
+  expected behavior.
 
 ## Your Task
 
@@ -78,19 +78,68 @@ the implementation of the classes `Point`, `RandomPoint`,
 were taught: abstraction, encapsulation, information hiding,
 inheritance, tell-don't-ask.
 
-Another client class `Test` is given to test the behavior of
-your code.  You are required to pass the test cases given in
-`Test`.
+## The `Point` class
 
-## `Circle`
+Fill in the class `Point` with the constructor and the
+necessary fields.  Add a `toString` method so that a
+string representation as shown in the examples below
+is returned.
+
+For instance, 
+```
+new Point(0, 0).toString();
+```
+
+should return the string:
+```
+(0.0, 0.0)
+```
+
+You will need to come back to this class and add other methods 
+later.   For now, check that your constructor and `toString` 
+methods are correct.
+
+Some simple tests are provided in the file `Test1.java`.
+Note that these test cases are not exhaustive and you are
+encouraged to test your `Point` class on your own.  Proceed
+to the next class if you are convinced your `Point` class is
+correct.
+
+```
+ooiwt@pe111:~/lab0-ooiwt$ javac Test1.java
+ooiwt@pe111:~/lab0-ooiwt$ java Test1
+Point: new at (0, 0).. ok
+Point: new at (-3.14, 1.59).. ok
+```
+
+As an aside, note that we do not need to explicitly
+compile `Point.java`.  Since `Test1.java` refers to
+the `Point` class, `javac` is smart enough to compile
+`Point.java` if `Point.class` is not found, or recompile 
+`Point.java` if it is newer than `Point.class`.
+
+## The `Circle` class
 
 Most of the `Circle` class has been written for you.  You
-need to complete the method `contains`.
+need to complete the method `contains`.  The method checks
+if a given point is contained in the calling `Circle` object.
+To complete this method according to the tell-don't-ask 
+principle, you will need to add a method in the `Point` class.
 
-## `Point`
+Some simple tests are provided in the file `Test2.java`.  These 
+test cases are not exhaustive and you are encouraged to test your 
+`Circle` class extensively.
 
-You need to fill in the class `Point` with the constructor,
-`toString`, and any other methods necessary.
+```
+ooiwt@pe111:~/lab0-ooiwt$ javac Test2.java
+ooiwt@pe111:~/lab0-ooiwt$ java Test2
+Circle: new at (0, 0) with radius 4).. ok
+Circle centered at (0, 0) with radius 4 contains (0, 0).. ok
+Circle centered at (0, 0) with radius 4 does not contain (4, 3).. ok
+Circle centered at (0, 0) with radius 4 does not contain (3, 4).. ok
+Circle centered at (2, -3) with radius 0.5 contains (1.8, -3.1).. ok
+Circle centered at (2, -3) with radius 0.5 does not contain (1.8, -4).. ok
+```
 
 ## `RandomPoint`
 
@@ -98,9 +147,7 @@ You need to fill in the class `Point` with the constructor,
 randomly generated point.  The random number generator that
 generates a random point has a default seed of 1.  There is
 a public method `setSeed()` that we can use to update the
-seed.
-
-This is how it can be used.
+seed. Here is how it can be used:
 
 To generate a new point,
 ```
@@ -116,9 +163,24 @@ To set the random seed,
 RandomPoint.setSeed(10);
 ```
 
-Tips: What are the fields and methods that should be
+Tip: What are the fields and methods that should be
 associated with the class `RandomPoint` instead of an
 instance of `RandomPoint`?
+
+Some simple tests are provided in the file `Test3.java`.  These 
+test cases are not exhaustive and you are encouraged to test your 
+`RandomPoint` class extensively.
+
+```
+ooiwt@pe111:~/lab0-ooiwt$ javac Test3.java
+ooiwt@pe111:~/lab0-ooiwt$ java Test2
+Circle: new at (0, 0) with radius 4).. ok
+Circle centered at (0, 0) with radius 4 contains (0, 0).. ok
+Circle centered at (0, 0) with radius 4 does not contain (4, 3).. ok
+Circle centered at (0, 0) with radius 4 does not contain (3, 4).. ok
+Circle centered at (2, -3) with radius 0.5 contains (1.8, -3.1).. ok
+Circle centered at (2, -3) with radius 0.5 does not contain (1.8, -4).. ok
+```
 
 ### Lab0
 
@@ -132,8 +194,13 @@ should declare `estimatePi`, then complete the body by
 generating random points and count how many fall under the
 given circle.
 
-Use r = 0.5 and use `long` and `double` within `estimatePi`
-to ensure you have the right precision.
+Use a circle centered at (0.5,0.5) with radius 0.5 for this
+purpose. Use `long` and `double` within `estimatePi` for
+computation to ensure that you have the right precision.
+
+Tip: In Java, using `/` on two integers result in an integer
+division.  Make sure one of the operand of `/` is a floating
+point number if you intend to use `/` for floating point division.
 
 To run `Lab0` and enter the input manually, run
 ```
@@ -152,14 +219,6 @@ java Lab0 < TEST
 
 Sample inputs and outputs have been provided and can be
 found under the `inputs` and `outputs` directory.
-
-## Testing
-
-You should test your classes individually before testing
-`Lab0`.  A simple `Test.java` is given.  You can run it with
-```
-java Test
-```
 
 To test your implementation of `Lab0`, automatically against
 the test data given in `inputs` and `outputs`,
