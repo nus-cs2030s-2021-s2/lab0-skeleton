@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 class Lab0 {
 
-  // TODO estimatePi(int numOfPoints, int seed) {
+  // TODO estimatePi(long numOfPoints, int seed) {
   // }
 
   public static void main(String[] args) {
